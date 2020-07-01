@@ -10,7 +10,7 @@ function NavBar (){
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
       <Link to="/" className="nav-link">Home</Link>
-      <Link to="/backoffice" className = "nav-link">Backoffice</Link>
+      <Link to="/Backoffice" className = "nav-link">Backoffice</Link>
      
     </Nav>
     <Form inline>

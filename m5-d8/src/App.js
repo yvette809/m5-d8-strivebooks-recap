@@ -6,6 +6,7 @@ import {Container,Row, Col} from "react-bootstrap"
 import NavBar from "./components/Navbar"
 import{BrowserRouter as Router, Route,Link, Switch } from "react-router-dom"
 import Homepage from "./components/Homepage"
+import Backoffice from './components/Backoffice';
   
 class App extends React.Component{
   state= {
@@ -17,19 +18,20 @@ class App extends React.Component{
       <div>
 
         <NavBar />
-        <Homepage/>
+        {/* <Homepage/>
+        <Backoffice/> */}
         
-        {/* <Switch>
-          <Route path="/details/:asin">
+         <Switch>
+          {/* <Route path="/details/:asin">
             <EditBook />
-          </Route>
+          </Route> */}
           <Route path="/backoffice">
-            <BackOffice />
+            <Backoffice />
           </Route>
           <Route path="/" exact>
-             <HomePage />
+             <Homepage />
           </Route>
-        </Switch> */}
+        </Switch> 
       </div>
     </Router>
     );
