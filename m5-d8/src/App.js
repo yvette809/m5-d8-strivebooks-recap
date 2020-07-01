@@ -5,6 +5,7 @@ import './App.css';
 import {Container,Row, Col} from "react-bootstrap"
 import NavBar from "./components/Navbar"
 import{BrowserRouter as Router, Route,Link, Switch } from "react-router-dom"
+import Homepage from "./components/Homepage"
   
 class App extends React.Component{
   state= {
@@ -16,8 +17,9 @@ class App extends React.Component{
       <div>
 
         <NavBar />
+        <Homepage/>
         
-        <Switch>
+        {/* <Switch>
           <Route path="/details/:asin">
             <EditBook />
           </Route>
@@ -27,7 +29,7 @@ class App extends React.Component{
           <Route path="/" exact>
              <HomePage />
           </Route>
-        </Switch>
+        </Switch> */}
       </div>
     </Router>
     );

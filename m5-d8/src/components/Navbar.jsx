@@ -1,6 +1,6 @@
 import React from "react"
 import{Navbar,Nav,Button, FormControl,Form} from "react-bootstrap"
-
+import{Link} from "react-router-dom"
 
 function NavBar (){
     return(
@@ -9,8 +9,8 @@ function NavBar (){
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#link">Link</Nav.Link>
+      <Link to="/" className="nav-link">Home</Link>
+      <Link to="/backoffice" className = "nav-link">Backoffice</Link>
      
     </Nav>
     <Form inline>
