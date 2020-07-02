@@ -1,48 +1,42 @@
-import React from "react"
-import {Media,Button} from "react-bootstrap"
+import React, { Component } from 'react'
+import { Media, Button} from "react-bootstrap"
+import { Link } from 'react-router-dom'
 
+class SingleBookListItem extends Component {
 
-
- class SingleBookListItem extends React.Component{
-
-
-    deleteBook = async(asin)=>{
-        let response = await fetch ("http://localhost:3000/books" + asin,{
+    deleteBook = async (asin) =>{
+        const booksResp = await fetch("http://localhost:3001/books/" + asin, {
             method: "DELETE"
         })
-        
-          if (response.ok){
-               this.props.onDelete(asin)
-            // this.setState({books:this.state.books.filter(b=> b.asin!== asin)})
+        if (booksResp.ok){
+            this.props.onDelete(asin)
+        }
     }
-}
-    
 
-    render(){
-        return(
+ 
+    render() {
+        const { title, img, category, price, asin } = this.props.item
+
+        return (
             <Media>
-  <img
-    width={64}
-    height={64}
-    className="mr-3"
-    src={this.props.item.img}
-    alt="Generic placeholder"
-  />
-  <Media.Body>
-    <h5>{this.props.item.title}</h5>
-    <p>
-      {this.props.item.category} - {this.props.item.price}
-      <Button variant="danger" className = "ml-5" onClick = {()=>this.deleteBook(this.props.item.asin)}>X</Button>
-    </p>
-    
-  </Media.Body>
-</Media>
+            <img
+              width={64}
+              height={64}
+              className="mr-3"
+              src={img}
+              alt="Generic placeholder"
+            />
+            <Media.Body>
+              <h5>{title}</h5>
+              <p>
+                {category} - {price}
+                <Button className="ml-5" variant="danger" onClick={() => this.deleteBook(asin) } >X</Button>
+                <Button className="ml-5" variant="warning"><Link to={"/details/" + asin}>Edit</Link></Button>
+              </p>
+            </Media.Body>
+          </Media>
         )
-
-
     }
 }
-
-
 
 export default SingleBookListItem
